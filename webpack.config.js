@@ -22,10 +22,10 @@ module.exports = {
                         loader: 'file-loader',
                         options: {
                             esModule: false,
-                            name (file) {
+                            name(file) {
                                 return "[path][name].[ext]"
                             },
-                            publicPath: function(url) {
+                            publicPath: function (url) {
                                 return url.replace("../", "/assets/")
                             }
                         }
@@ -36,6 +36,11 @@ module.exports = {
                 ]
             }
         ]
+    },
+    devServer: {
+        static: {
+            directory: __dirname
+        }
     },
     // Use plugins to define variables to use the installed npm package. When using libraries that depend on the use of global variables,
     // you must tell webpack to make exceptions for them using webpack.ProvidePlugin
